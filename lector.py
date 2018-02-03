@@ -9,7 +9,7 @@ def read(url):
     ###############################################
 
     # Replace the subscription_key string value with your valid subscription key.
-    subscription_key = '4e7bffafb0844e5192891c91e013b042'
+    subscription_key = '11bb51916aee456f85cae4d6e9e8a8a7'
 
     # Replace or verify the region.
     #
@@ -19,7 +19,7 @@ def read(url):
     #
     # NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
     # a free trial subscription key, you should not need to change this region.
-    uri_base = 'westcentralus.api.cognitive.microsoft.com'
+    uri_base = 'southcentralus.api.cognitive.microsoft.com'
 
     headers = {
         # Request headers.
@@ -39,7 +39,7 @@ def read(url):
     try:
         # Execute the REST API call and get the response.
         print("sending image")
-        conn = http.client.HTTPSConnection('westcentralus.api.cognitive.microsoft.com/vision/v1.0'.strip('\n'))
+        conn = http.client.HTTPSConnection(uri_base)
         conn.request("POST", "/vision/v1.0/ocr?%s" % params, body, headers)
         response = conn.getresponse()
         print("response!!!")
