@@ -58,5 +58,6 @@ def read(url):
     except Exception as e:
         print('Error:')
         print(e)
+    return "failed to read"
 
     ####################################

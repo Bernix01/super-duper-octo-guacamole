@@ -1,6 +1,5 @@
 import face_recognition
 import cv2
-import pyttsx
 # This is a demo of running face recognition on live video from your webcam. It's a little more complicated than the
 # other example, but it includes some basic performance tweaks to make things run a lot faster:
 #   1. Process each video frame at 1/4 resolution (though still display it at full resolution)
@@ -13,7 +12,6 @@ import pyttsx
 # Get a reference to webcam #0 (the default one)
 video_capture = cv2.VideoCapture(0)
 
-engine = pyttsx.init("sapi5")
 # Load a sample picture and learn how to recognize it.
 obama_image = face_recognition.load_image_file("obama.jpg")
 guillermo_image = face_recognition.load_image_file("guillermo.jpg")
@@ -35,7 +33,7 @@ while True:
     ret, frame = video_capture.read()
 
     # Resize frame of video to 1/4 size for faster face recognition processing
-    small_frame = cv2.resize(frame, (0, 0), fx=1/4, fy=1/4)
+    small_frame = cv2.resize(frame, (0, 0), fx=1/2, fy=1/2)
 
     # Only process every other frame of video to save time
     if process_this_frame:
@@ -67,10 +65,10 @@ while True:
     # Display the results
     for (top, right, bottom, left), name in zip(face_locations, face_names):
         # Scale back up face locations since the frame we detected in was scaled to 1/4 size
-        top *= 4
-        right *= 4
-        bottom *= 4
-        left *= 4
+        top *= 2
+        right *= 2
+        bottom *= 2
+        left *= 2
 
         # Draw a box around the face
         cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)

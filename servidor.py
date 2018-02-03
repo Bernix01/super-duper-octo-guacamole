@@ -1,8 +1,7 @@
 import os
-from flask import Flask, request, redirect, url_for
+from flask import Flask, request, redirect, url_for, send_from_directory, jsonify
 from werkzeug.utils import secure_filename
 from recognizer_heimdall import recognize
-from flask import send_from_directory
 import cv2
 from azure.storage.blob.blockblobservice import BlockBlobService
 import imutils
