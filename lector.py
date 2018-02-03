@@ -9,7 +9,7 @@ def read(url):
     ###############################################
 
     # Replace the subscription_key string value with your valid subscription key.
-    subscription_key = '5a63912e613946548c8cd7b306bafa09'
+    subscription_key = '4e7bffafb0844e5192891c91e013b042'
 
     # Replace or verify the region.
     #
@@ -35,13 +35,14 @@ def read(url):
 
     # The URL of a JPEG image containing text.
     body = "{'url':'"+url+"'}"
-
+    print(body)
     try:
         # Execute the REST API call and get the response.
-        conn = http.client.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
+        print("sending image")
+        conn = http.client.HTTPSConnection('westcentralus.api.cognitive.microsoft.com/vision/v1.0'.strip('\n'))
         conn.request("POST", "/vision/v1.0/ocr?%s" % params, body, headers)
         response = conn.getresponse()
-
+        print("response!!!")
         #data = response.read()
         str_response = response.read().decode('utf-8')
         # 'data' contains the JSON data. The following formats the JSON data for display.

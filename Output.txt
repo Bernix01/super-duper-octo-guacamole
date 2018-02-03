@@ -1,5 +1,5 @@
 {
-  "code": "BadArgument",
-  "message": "JSON format error.",
-  "requestId": "6b41bede-d34b-42fa-ba73-83349c4a103d"
+  "code": "InvalidImageUrl",
+  "message": "Timed out fetching the image.",
+  "requestId": "36da0d33-9ea2-41be-a224-1c0f68ee97df"
 }
