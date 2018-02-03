@@ -63,6 +63,7 @@ while True:
                     'http://181.39.232.43:8080/read', files={'file': f})
                 print("zlcnzncz")
                 r = r.json()
+                print(r)
                 client_sock.send(r)
     except IOError:
         pass
