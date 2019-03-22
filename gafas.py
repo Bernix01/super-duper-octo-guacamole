@@ -1,10 +1,11 @@
 import os.path
 import sys
 import json
-from picamera import PiCamera
+import cv2
+# from picamera import PiCamera
 from time import sleep
 import requests
-camera = PiCamera()
+# camera = PiCamera()
 
 try:
     import apiai
@@ -47,9 +48,11 @@ def main():
               #enviar el dato por bluetooth a android
 
 def capture_image(destination):
-    camera.start_preview()
-    sleep(3)
-    camera.capture(destination)
-    camera.stop_preview()
+    ret, frame = cap.read()
+    cv2.imwrite(destination, frame)
+    # camera.start_preview()
+    # sleep(3)
+    # camera.capture(destination)
+    # camera.stop_preview()
 
 main()
